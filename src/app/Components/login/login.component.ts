@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
     this.UserSer.loginUser(this.loginInputValue.value).subscribe((res: any) => {
       console.log("Responce after Login:", res.user);
-      if (res.status == true) {
+      if (res.status == 200) {
         // alert("Login Successfully")
         alert(res.msg)
         this.route.navigate(['/menu'])
