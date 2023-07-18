@@ -1,0 +1,25 @@
+<div class="container py-3">
+    <h2>Menu</h2>
+    <div class="row">
+        <ng-container *ngFor="let prod of allItem">
+            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card p-3">
+                    <img src={{img_path}}{{prod?.image}} class="card-img-top" alt="product" height="200">
+                    <!-- <img [src]="img_path" class="card-img-top" alt="product" height="200"> -->
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            {{prod?.itemName}}
+                        </h6>
+                        <h6 class="card-title">
+                            {{prod?.itemDetails}}
+                        </h6>
+                    </div>
+                    <!-- <a routerLink="details/{{prod._id}}">
+                        <button class="btn btn-primary">Details</button>
+                    </a> -->
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
