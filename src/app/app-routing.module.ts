@@ -7,16 +7,22 @@ import { ServicesComponent } from './Components/services/services.component';
 import { RegistationComponent } from './Components/registation/registation.component';
 import { LoginComponent } from './Components/login/login.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { DetailsComponent } from './Components/menu/details/details.component';
 
 const routes: Routes = [
-  {path:"",redirectTo:"home",pathMatch:"full"},
-  {path:"home",component:HomeComponent},
-  {path:"contact",component:ContactComponent},
-  {path:"about",component:AboutComponent},
-  {path:"menu",component:MenuComponent},
-  {path:"services",component:ServicesComponent},
-  {path:"register",component:RegistationComponent},
-  {path:"login",component:LoginComponent}
+  { path: "", redirectTo: "home", pathMatch: "full" },
+  { path: "home", component: HomeComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "about", component: AboutComponent },
+  {
+    path: "menu", component: MenuComponent} ,
+    // children: [
+      { path: "details/:_id", component: DetailsComponent },
+    // ]
+  // },
+  { path: "services", component: ServicesComponent },
+  { path: "register", component: RegistationComponent },
+  { path: "login", component: LoginComponent }
 ];
 
 @NgModule({
