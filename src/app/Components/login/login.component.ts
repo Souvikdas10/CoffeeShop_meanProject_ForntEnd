@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   loginInputValue!: FormGroup;
   changetype: boolean = true;
   visible: boolean = true;
-  constructor(private UserSer: UserService,
+  constructor(private UserSer: UserService, private storage:StorageService,
     private route:Router
     ) { }
   ngOnInit(): void {
@@ -33,11 +34,15 @@ export class LoginComponent implements OnInit {
       console.log("Responce after Login:", res.user);
       if (res.status == 200) {
         // alert("Login Successfully")
+        this.storage.setData(res.user.name,
+          res.user.email,
+          res.user.contact,
+          res.token)
         alert(res.msg)
         this.route.navigate(['/menu'])
       } else {
-        alert("Login Error");
-        // alert(res.msg);
+        // alert("Login Error");
+        alert(res.message);
       }
     })
   }

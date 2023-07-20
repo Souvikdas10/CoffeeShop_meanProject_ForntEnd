@@ -12,6 +12,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './Components/menu/menu.component';
+import { DetailsComponent } from './Components/menu/details/details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MenuComponent } from './Components/menu/menu.component';
     ServicesComponent,
     RegistationComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
