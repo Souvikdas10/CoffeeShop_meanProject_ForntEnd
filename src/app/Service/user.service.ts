@@ -12,6 +12,7 @@ export class UserService {
   login_api: string = "http://localhost:2100/login";
   contact_api: string = "http://localhost:2100/contact";
   memuPost_api: string = "http://localhost:2100/getItem";
+  single_data_api:string="http://localhost:2100/single"
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,12 @@ export class UserService {
   item_Menu(): Observable<Menu[]> {
     return this.http.get<Menu[]>(this.memuPost_api)
   }
+
+  single_data_fetch(id:any):Observable<Menu[]>
+  {
+    return this.http.get<Menu[]>(`${this.single_data_api}/${id}`)
+  }
+
+
 
 }
