@@ -12,8 +12,8 @@
     overflow:hidden;
     position:relative;
     /* top:-5vh; */
-    transition: all ease-in-out 0.5s;
-    transform: scale(.9) translate(-5%, -5%);
+    /* transition: all ease-in-out 0.5s; */
+    /* transform: scale(.9) translate(-5%, -5%); */
     z-index:1;
     opacity: .9;
 
@@ -31,7 +31,9 @@
     font-size: larger;
     /* background-color: rgb(99, 6, 6); */
 }
-.btn-primary{
-    background-color:#2610b3 ;
-     /* text-align: right; */
+.btn{
+    /* background-color:#2610b3 ; */
+     /* text-align: center; */
+     margin-left: 300px;
+     /* margin: auto; */
 }
