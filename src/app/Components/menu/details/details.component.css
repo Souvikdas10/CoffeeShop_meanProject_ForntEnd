@@ -4,4 +4,36 @@
 
 .card{
     margin: auto;
+    width:50%;
+    /* background-color:#2610b3 ; */
+    border:.1px solid #ccc;
+    box-shadow:  3px 4px rgba(8,76,93);
+    height:auto;
+    overflow:hidden;
+    position:relative;
+    /* top:-5vh; */
+    /* transition: all ease-in-out 0.5s; */
+    /* transform: scale(.9) translate(-5%, -5%); */
+    z-index:1;
+    opacity: .9;
+
+}
+.card-img-top{
+    height: 540px;
+    object-fit: cover;
+    width: 782px;
+    display: block;
+    max-width: 100%;
+    text-align: center;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    font-size: larger;
+    /* background-color: rgb(99, 6, 6); */
+}
+.btn{
+    /* background-color:#2610b3 ; */
+     /* text-align: center; */
+     margin-left: 300px;
+     /* margin: auto; */
 }
