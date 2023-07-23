@@ -34,6 +34,20 @@
 .btn{
     /* background-color:#2610b3 ; */
      /* text-align: center; */
-     margin-left: 300px;
+     margin-left: 260px;
      /* margin: auto; */
+}
+.coffee{
+    color: rgb(14, 13, 13);
+    font-weight: bold;
+    font-size: large;
+
+}
+.css{
+    color: rgb(187, 12, 12);
+    font-weight: bold;
+}
+.white{
+    color: rgb(2, 0, 2);
+    font-weight: bold;  
 }
