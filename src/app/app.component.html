@@ -25,22 +25,42 @@
                   <a class="nav-link" routerLink="/contact">Contact Us</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" routerLink="/register"><i class="fa-sharp fa-solid fa-user">
-                     </i></a>
-                  
+                  <!-- <a class="nav-link" routerLink="/register"><i class="fa-sharp fa-solid fa-user">
+                     </i></a> -->
+
+                  <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                        <i class="fa-sharp fa-solid fa-user">
+                        </i>
+                        <span class="caret"></span></button>
+                     <ul class="dropdown-menu">
+                        <ng-container *ngIf="!logggedIn()">
+                           <li><a class="dropdown-item" href="/register">Sign Up</a></li>
+                           <li><a class="dropdown-item" href="/login">Sign In</a></li>
+                        </ng-container>
+                        <ng-container *ngIf="logggedIn()">
+                           <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>
+                        </ng-container>
+                     </ul>
+                     <ng-container *ngIf="logggedIn()"><p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
+                     </ng-container>
+                  </div>
                </li>
-              
             </ul>
          </div>
       </nav>
    </div>
 </div>
 <!--header section end -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 
-
-
-
-
-
- 
+<ng-container *ngIf="load; else elseBlock">
+   <div class="text-center py-5">
+      <div class="spinner-border text-primary" role="status">
+         <span class="visually-hidden">loading....</span>
+      </div>
+   </div>
+</ng-container>
+<ng-template #elseBlock>
+   <router-outlet></router-outlet>
+</ng-template>

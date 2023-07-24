@@ -25,4 +25,7 @@ export class StorageService {
   getToken(){
     return window.sessionStorage.getItem('token')
   }
+  getDestroy(){
+    return window.sessionStorage.clear()
+  }
 }
