@@ -25,25 +25,24 @@
                   <a class="nav-link" routerLink="/contact">Contact Us</a>
                </li>
                <li class="nav-item">
-                  <!-- <a class="nav-link" routerLink="/register"><i class="fa-sharp fa-solid fa-user">
-                     </i></a> -->
-
                   <div class="dropdown">
-                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-                        <i class="fa-sharp fa-solid fa-user">
-                        </i>
-                        <span class="caret"></span></button>
-                     <ul class="dropdown-menu">
+                     <!-- <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> -->
+                     <a class="nav-link" href="#" data-toggle="dropdown"><i class="fa-sharp fa-solid fa-user"></i></a>
+                     <!-- <span class="caret"></span></button> -->
+                     <ul class="dropdown-menu ">
                         <ng-container *ngIf="!logggedIn()">
                            <li><a class="dropdown-item" href="/register">Sign Up</a></li>
                            <li><a class="dropdown-item" href="/login">Sign In</a></li>
                         </ng-container>
+                        <br>
                         <ng-container *ngIf="logggedIn()">
                            <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>
                         </ng-container>
+                        <ng-container *ngIf="logggedIn()">
+                           <p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
+                        </ng-container>
                      </ul>
-                     <ng-container *ngIf="logggedIn()"><p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
-                     </ng-container>
+                    
                   </div>
                </li>
             </ul>
