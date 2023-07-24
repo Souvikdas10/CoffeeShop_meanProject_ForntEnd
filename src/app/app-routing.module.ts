@@ -22,7 +22,8 @@ const routes: Routes = [
   // },
   { path: "services", component: ServicesComponent },
   { path: "register", component: RegistationComponent },
-  { path: "login", component: LoginComponent }
+  { path: "login", component: LoginComponent },
+  { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 
 @NgModule({
