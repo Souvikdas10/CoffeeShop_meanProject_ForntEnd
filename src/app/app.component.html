@@ -35,7 +35,9 @@
                            <li><a class="dropdown-item" href="/login">Sign In</a></li>
                         </ng-container>
                         <br>
+
                         <ng-container *ngIf="logggedIn()">
+                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>
                         </ng-container>
                         <ng-container *ngIf="logggedIn()">

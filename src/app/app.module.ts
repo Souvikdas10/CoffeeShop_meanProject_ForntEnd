@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './Components/menu/menu.component';
 import { DetailsComponent } from './Components/menu/details/details.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DetailsComponent } from './Components/menu/details/details.component';
     RegistationComponent,
     LoginComponent,
     MenuComponent,
-    DetailsComponent
+    DetailsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

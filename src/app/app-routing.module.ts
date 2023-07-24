@@ -8,6 +8,7 @@ import { RegistationComponent } from './Components/registation/registation.compo
 import { LoginComponent } from './Components/login/login.component';
 import { MenuComponent } from './Components/menu/menu.component';
 import { DetailsComponent } from './Components/menu/details/details.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "services", component: ServicesComponent },
   { path: "register", component: RegistationComponent },
   { path: "login", component: LoginComponent },
+  {path:"profile",component:ProfileComponent},
   { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 
