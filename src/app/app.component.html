@@ -24,6 +24,12 @@
                <li class="nav-item">
                   <a class="nav-link" routerLink="/contact">Contact Us</a>
                </li>
+               <a class="nav-link" href=""><i class="fa fa-cart-plus fs-5" style="color: white;"></i>
+               <span class="position-absolute translate-middle badge rounded rounded-pill bg-danger">2
+                  <span class="visually-hidden"></span>
+               </span>
+               </a>
+               
                <li class="nav-item">
                   <div class="dropdown">
                      <!-- <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> -->
@@ -43,8 +49,8 @@
                         <ng-container *ngIf="logggedIn()">
                            <p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
                         </ng-container>
+
                      </ul>
-                    
                   </div>
                </li>
             </ul>
