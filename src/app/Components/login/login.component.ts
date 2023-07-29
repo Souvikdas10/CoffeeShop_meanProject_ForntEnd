@@ -10,11 +10,12 @@ import { UserService } from 'src/app/Service/user.service';
 })
 export class LoginComponent implements OnInit {
   loginInputValue!: FormGroup;
+  errorMsg!: string;
   changetype: boolean = true;
   visible: boolean = true;
-  constructor(private UserSer: UserService, private storage:StorageService,
-    private route:Router
-    ) { }
+  constructor(private UserSer: UserService, private storage: StorageService,
+    private route: Router
+  ) { }
   ngOnInit(): void {
     this.loginInputValue = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.pattern("([a-z0-9.-]+)@([a-z]{2,15}).([a-z.]{2,10})$")]),
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   submitData() {
-    console.log("login Form Data:", this.loginInputValue.value);
+    // console.log("login Form Data:", this.loginInputValue.value);
 
     this.UserSer.loginUser(this.loginInputValue.value).subscribe((res: any) => {
       console.log("Responce after Login:", res.user);
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
         // alert("Login Successfully")
         this.storage.setData(res.user.name,
           res.user.email,
-          res.user.contact,
+          res.user._id,
           res.token)
         alert(res.msg)
         this.route.navigate(['/menu'])
@@ -44,6 +45,12 @@ export class LoginComponent implements OnInit {
         // alert("Login Error");
         alert(res.message);
       }
-    })
+    }, (err) => {
+      console.log("http error :", err.error.message);
+      this.errorMsg = err.error.message
+
+
+    }
+    )
   }
 }

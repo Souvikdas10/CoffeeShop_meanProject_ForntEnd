@@ -4,7 +4,11 @@
             <form class="login100-form validate-form" [formGroup]="loginInputValue" (ngSubmit)="submitData()">
                 <span class=" login100-form-title p-b49">Login</span>
                 <br><br><br>
-
+                <ng-container *ngIf="errorMsg">
+                    <p>
+                        {{errorMsg}}
+                    </p>
+                </ng-container>
                 <div class="wrap-input100 validate-input m-b-23">
                     <span class="label-input100">Email</span>
                     <input class="input100" type="email" formControlName="email" id="email"
@@ -27,20 +31,20 @@
                         <i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i>
                     </span>
                     <ng-container
-                    *ngIf="loginInputValue.get('password')?.touched && loginInputValue.get('password')?.hasError('required')">
-                    <p class="error">Required field</p>
-                </ng-container>
-                <ng-container *ngIf="loginInputValue.get('password')?.hasError('pattern')">
-                    <p class="error">
-                        <!-- Password must contain atleast one:- <br>
+                        *ngIf="loginInputValue.get('password')?.touched && loginInputValue.get('password')?.hasError('required')">
+                        <p class="error">Required field</p>
+                    </ng-container>
+                    <ng-container *ngIf="loginInputValue.get('password')?.hasError('pattern')">
+                        <p class="error">
+                            <!-- Password must contain atleast one:- <br>
                         uppercase (A-Z), <br>
                         lowercase (a-z), <br>
                         numeric (0-9) and <br>
                         special character (?=.*[!@#$&*]) <br>
                         Ex:.xyz@123 -->
-                        Passowrd Not Match
-                    </p>
-                </ng-container>
+                            Passowrd Not Match
+                        </p>
+                    </ng-container>
                 </div>
                 <br>
 
@@ -52,7 +56,9 @@
 
                 </div>
             </form>
-            <p>Don't have an account? Register First: <a routerLink="/register"><h1><b>Register</b></h1></a></p>
+            <p>Don't have an account? Register First: <a routerLink="/register">
+                    <h1><b>Register</b></h1>
+                </a></p>
         </div>
     </div>
 </div>

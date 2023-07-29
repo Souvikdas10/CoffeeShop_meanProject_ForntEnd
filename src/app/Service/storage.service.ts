@@ -6,26 +6,26 @@ import { Injectable } from '@angular/core';
 export class StorageService {
 
   constructor() { }
-  setData(name:string,email:string,phone:string,token:string){
-    window.localStorage.setItem('name',name);
-    window.localStorage.setItem('email',email);
-    window.localStorage.setItem('phone',phone);
-    window.sessionStorage.setItem('token',token);
+  setData(name: string, email: string, id: string, token: string) {
+    window.localStorage.setItem('name', name);
+    window.localStorage.setItem('email', email);
+    window.localStorage.setItem('id', id);
+    window.sessionStorage.setItem('token', token);
   }
-  getData(){
-    const saveData=[];
-    let data={
-      name:window.localStorage.getItem('name'),
-      email:window.localStorage.getItem('email'),
-      phone:window.localStorage.getItem('phone'),
+  getData() {
+    const saveData = [];
+    let data = {
+      name: window.localStorage.getItem('name'),
+      email: window.localStorage.getItem('email'),
+      id: window.localStorage.getItem('id'),
     }
     saveData.push(data);
     return saveData;
   }
-  getToken(){
+  getToken() {
     return window.sessionStorage.getItem('token')
   }
-  getDestroy(){
+  getDestroy() {
     return window.sessionStorage.clear()
   }
 }

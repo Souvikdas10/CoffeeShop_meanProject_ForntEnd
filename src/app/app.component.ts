@@ -13,7 +13,7 @@ export class AppComponent {
   token!: any;
   data!: any;
   name!: any;
-  
+  // image!: any;
   load: boolean = false;
 
   constructor(private router: Router,
@@ -36,12 +36,12 @@ export class AppComponent {
   //loggin 
   logggedIn() {
     this.token = this.storeSer.getToken();
-    console.log("Token Value:", this.token);
+    // console.log("Token Value:", this.token);
     if (this.token) {
       this.data = this.storeSer.getData();
-      console.log("User data:", this.data);
+      // console.log("User data:", this.data);
       this.name = this.data[0].name
-
+      // this.image = this.data[0].image
     }
     return this.token;
   }
