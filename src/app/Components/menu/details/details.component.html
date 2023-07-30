@@ -6,12 +6,10 @@
     <img src="{{imagePath}}{{single_details.image}}" class="card-img-top" alt="">
     <div class="card-body">
       <h4 class="card-title css"><b class="coffee">Name:</b> {{single_details.itemName}}</h4>
-      <!-- <h1 class="card-title"><b class="coffee">Name:</b> {{single_details.itemName}}</h1> -->
       <!-- <h1 class="card-title"> Name:{{single_details.itemName}}<p>{{single_details.itemName}}</p></h1> -->
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item white"><b class="coffee">Description:</b> &nbsp;{{single_details.itemDetails}}</li>
-      <!-- <span class="text-danger fw-semibold me-2">$500</span><del>$250</del> -->
       <li class="list-group-item css"><b class="coffee">Price:</b> ₹. {{single_details.price}}</li>
       <!-- <span class="text-danger fw-semibold me-2"><b class="coffee">Price:</b> Rs. {{single_details.price}}</span><del>$250</del> -->
 
@@ -19,6 +17,8 @@
     <div class="card-body">
       <!-- <a href="#" class="card-link">Card link</a> -->
       <button class="btn btn-outline-warning">Order Now</button>
+      <button class="btn btn-sm btn-success" (click)="addItemTocart()">Add To Cart</button>
+    
       <!-- <a href="#" class="card-link">Another link</a> -->
     </div>
   </div>

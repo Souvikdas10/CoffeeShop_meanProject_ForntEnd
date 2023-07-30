@@ -20,3 +20,10 @@ export class Menu {
     price!: string;
     image!: File;
 }
+
+export class Cart {
+    customer_id!: string;
+    item_id!: string;
+    quenty!: Number;
+    image!: File;
+}

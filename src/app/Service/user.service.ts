@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
-import { Contact, Menu, User } from '../Classes/user';
+import { Cart, Contact, Menu, User } from '../Classes/user';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class UserService {
   memuPost_api: string = "http://localhost:2100/getItem";
   single_data_api: string = "http://localhost:2100/single";
   profile_api: string = "http://localhost:2100/profile";
+  Cart_api: string = "http://localhost:2100/getcart";
+  add_api: string = "http://localhost:2100/addcart";
+
+
 
 
   constructor(private http: HttpClient, private auth: StorageService) { }
@@ -25,8 +29,7 @@ export class UserService {
 
   loginUser(loginData: any): Observable<User[]> {
     return this.http.post<User[]>(this.login_api, loginData)
-
-      .pipe(catchError(this.errorHandler))
+    .pipe(catchError(this.errorHandler))
   }
 
   //error Handler
@@ -52,9 +55,13 @@ export class UserService {
     return this.http.get<User[]>(`${this.profile_api}/${pid}`)
   }
 
+Cart_data():Observable<Cart[]>{
+  return this.http.get<Cart[]>(this.Cart_api)
 
-  // profile_data(id: any): Observable<User[]> {
-  //   return this.http.get<User[]>(`${this.profile_api}/${id}`)
-  // }
+}
+AddToCart(obj:any):Observable<Cart[]>{
+  return this.http.post<Cart[]>(this.add_api,obj)
+
+}
 
 }

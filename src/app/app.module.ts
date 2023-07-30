@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { MenuComponent } from './Components/menu/menu.component';
 import { DetailsComponent } from './Components/menu/details/details.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { CartComponent } from './Components/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
     LoginComponent,
     MenuComponent,
     DetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
