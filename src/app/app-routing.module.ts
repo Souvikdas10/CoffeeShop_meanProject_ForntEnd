@@ -10,6 +10,7 @@ import { MenuComponent } from './Components/menu/menu.component';
 import { DetailsComponent } from './Components/menu/details/details.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { authGuardGuard } from './Authentication/auth-guard.guard';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -19,14 +20,14 @@ const routes: Routes = [
   {
     path: "menu", component: MenuComponent} ,
     // children: [
-      { path: "details/:_id", component: DetailsComponent },
+      { path: "details/:_id", component: DetailsComponent, canActivate:[authGuardGuard] },
     // ]
   // },
   { path: "services", component: ServicesComponent },
   { path: "register", component: RegistationComponent },
   { path: "login", component: LoginComponent },
-  {path:"profile",component:ProfileComponent},
-  {path:"Cart",component:CartComponent},
+  {path:"profile",component:ProfileComponent, canActivate:[authGuardGuard]},
+  {path:"Cart",component:CartComponent, canActivate:[authGuardGuard]},
   { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];
 

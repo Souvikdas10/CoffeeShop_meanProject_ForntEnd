@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 
@@ -17,11 +17,14 @@ export class DetailsComponent implements OnInit {
   imagePath: any = ""
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
+  count: number = 1
 
 
   constructor(private UserSer: UserService,
     private Storage: StorageService,
-    private Activate: ActivatedRoute) { }
+    private Activate: ActivatedRoute,
+    private router: Router
+  ) { }
 
 
   ngOnInit(): void {
@@ -29,36 +32,40 @@ export class DetailsComponent implements OnInit {
       this.details_id = params.get('_id')
       // console.log("id",this.details_id);
       this.UserSer.single_data_fetch(this.details_id).subscribe((res: any) => {
-        console.log(res.data);
+        // console.log(res.data);
         this.single_details = res.data
 
 
         this.imagePath = this.baseUrl + this.folderPath
-        console.log(this.imagePath);
+        // console.log(this.imagePath);
       })
     })
-    //  this.UserSer.Cart_data(this.allCart).subscribe((res)=>{
-    //    this.allCart=res
-    //    console.log(this.allCart);
-
-    //  })
   }
-  loadallproduct(){
-    this.UserSer.Cart_data().subscribe((res)=>{
-      this.allCart=res
+
+  loadallproduct() {
+    this.UserSer.Cart_data().subscribe((res) => {
+      this.allCart = res
     })
   }
-  addItemTocart(pid: string){
+
+
+  addItemTocart(pid: string) {
     // this.allCart.details_id
-    this.cart_id=pid
-    this.UserSer.AddToCart(this.cart_id).subscribe((res)=>{
-      this.allCart=res
-      console.log("add to post:",this.allCart);
-
+    this.cart_id = pid
+    this.UserSer.AddToCart(this.cart_id).subscribe((res) => {
+      this.allCart = res
+      console.log("add to post:", this.allCart);
+      alert("Item Cart Successfully")
+      this.router.navigate(['/Cart'])
     })
   }
-  
 
+  inc() {
+    this.count++;
+  }
+  dec() {
+    this.count--;
+  }
 
 }
 

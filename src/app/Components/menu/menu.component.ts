@@ -17,10 +17,10 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     this.httpSer.item_Menu().subscribe((res: any) => {
       this.allItem = res.data;
-      console.log("All item:", this.allItem);
+      // console.log("All item:", this.allItem);
       
       this.img_path = this.baseUrl + this.folderPath 
-      console.log(this.img_path);
+      // console.log(this.img_path);
       
       // console.log("all image:", this.baseUrl,this.folderPath,this.allItem.image);
 

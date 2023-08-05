@@ -1,23 +1,26 @@
 <table class="table">
     <thead>
       <tr>
-        <!-- <th scope="col">Sl No</th> -->
-        <th scope="col">Image</th>
-        <th scope="col">Item Name</th>
-        <th scope="col">Item Details</th>
-        <th scope="col">Price</th>
-        <th scope="col">quantity</th>
+        <th scope="col" class="table-success">Sl No</th>
+        <th scope="col" class="table-info">Image</th>
+        <th scope="col" class="table-secondary">Item Name</th>
+        <!-- <th scope="col" class="table-danger">Item Details</th> -->
+        <th scope="col" class="table-warning">Price</th>
+        <th scope="col" class="table-danger">Quantity</th>
+        <th scope="col" class="table-primary">Delete</th>
       </tr>
     </thead>
-    <tbody *ngFor="let cartp of item">
+    <tbody *ngFor="let cartp of item; let i =index">
       <tr>
         <!-- <th scope="row">1</th> -->
-        <!-- <td>{{count}}</td> -->
-        <td><img src="{{img_path}}{{cartp.image}}" alt="image" height="50px" width="50px"></td>
-        <td>{{cartp.itemName}}</td>
-        <td>{{cartp.itemDetails}}</td>
-        <td>{{cartp.price}}</td>
-        <td>1</td>
+        <td class="table-info">{{i+1}}</td>
+        <td class="table-success">
+          <img src="{{img_path}}{{cartp.image}}" alt="image" height="50px" width="50px"></td>
+        <td class="table-warning">{{cartp.itemName}}</td>
+        <!-- <td>{{cartp.itemDetails.slice(0,20)}}</td> -->
+        <td class="table-secondary">{{cartp.price}}</td>
+        <td class="table-primary">1</td>
+        <td class="table-danger"><button class="btn btn-danger" (click)="del(cartp.id)"><i class="fa-sharp fa-solid fa-trash"></i></button></td>
        
       </tr>
     </tbody>

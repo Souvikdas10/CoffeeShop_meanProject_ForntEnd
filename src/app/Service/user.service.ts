@@ -65,4 +65,8 @@ AddToCart(obj:any):Observable<Cart[]>{
   return this.http.post<Cart[]>(this.Cart_api,obj)
 }
 
+CartItemDelete(id:number):Observable<Cart[]>{
+  return this.http.delete<Cart[]>(`${this.Cart_api}/${id}`)
+}
+
 }

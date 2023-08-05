@@ -16,9 +16,12 @@
     </ul>
     <div class="card-body">
       <!-- <a href="#" class="card-link">Card link</a> -->
+      <button (click)="inc()" >++</button>{{count}}
+      <button (click)="dec()"> --</button>
       <p>
       <button class="btn btn-outline-warning">Order Now</button>
-      <button class="btn btn-sm btn-success" (click)="addItemTocart(single_details)">Add To Cart</button>
+      <button class="btn btn-sm btn-success"  (click)="addItemTocart(single_details)">Add To Cart </button>
+      
       </p>
       <!-- <a href="#" class="card-link">Another link</a> -->
     </div>
