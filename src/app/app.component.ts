@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd } from '@angular/router';
 import { StorageService } from './Service/storage.service';
+import { UserService } from './Service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,10 @@ export class AppComponent {
   name!: any;
   // image!: any;
   load: boolean = false;
+  totalItem=0;
 
   constructor(private router: Router,
+    private userser:UserService,
     private storeSer: StorageService
   ) { }
   ngOnInit(): void {
@@ -30,6 +33,9 @@ export class AppComponent {
           console.log("loading done");
         }, 1500)
       }
+    })
+    this.userser.Cart_data().subscribe((res)=>{
+      this.totalItem=res.length
     })
   }
 

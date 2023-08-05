@@ -8,27 +8,19 @@ import { UserService } from 'src/app/Service/user.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  email!: string | null;
-  CartP!:any;
-  // email!: string;
+  item:any;
+  img_path!:any
+  baseUrl: string = "http://localhost:2100/"
+  folderPath: string = "upload/"
+
   constructor(private userSer: UserService,
     private stored: StorageService) { }
-
   ngOnInit(): void {
-    // this.stored.email=window.localStorage.getItem('email'),
-    // {
-    //   if (this.stored) {
-    //     this.email = window.localStorage.getItem('email');
-    //   }
+    this.userSer.Cart_data().subscribe((res)=>{
+      this.item=res
 
-    //   this.userSer.Cart_data().subscribe((res) => {
-    //     console.log("response", res);
-    //     this.CartP=res.filter(x=>x.email==this.stored.email)
-    //     if(this.CartP.length>0)
-    //   {
-    //   this.CartP.findindex((x: { pid: any; })=>x.pid==pid)
-    //   }
-    //   })
-    // }
+      this.img_path = this.baseUrl + this.folderPath 
+      console.log(this.img_path);
+    })
   }
 }

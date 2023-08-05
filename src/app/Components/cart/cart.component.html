@@ -1,1 +1,25 @@
-<p>cart works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <!-- <th scope="col">Sl No</th> -->
+        <th scope="col">Image</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Details</th>
+        <th scope="col">Price</th>
+        <th scope="col">quantity</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let cartp of item">
+      <tr>
+        <!-- <th scope="row">1</th> -->
+        <!-- <td>{{count}}</td> -->
+        <td><img src="{{img_path}}{{cartp.image}}" alt="image" height="50px" width="50px"></td>
+        <td>{{cartp.itemName}}</td>
+        <td>{{cartp.itemDetails}}</td>
+        <td>{{cartp.price}}</td>
+        <td>1</td>
+       
+      </tr>
+    </tbody>
+  </table>
+        

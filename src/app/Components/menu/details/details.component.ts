@@ -43,39 +43,22 @@ export class DetailsComponent implements OnInit {
 
     //  })
   }
-  // addItemTocart(details_id: number){
-  //   this.allCart.details_id=details_id;
-  //   this.UserSer.Cart_data().subscribe((res)=>{
-  //     this.single_details=res
-  //     console.log(this.single_details);
+  loadallproduct(){
+    this.UserSer.Cart_data().subscribe((res)=>{
+      this.allCart=res
+    })
+  }
+  addItemTocart(pid: string){
+    // this.allCart.details_id
+    this.cart_id=pid
+    this.UserSer.AddToCart(this.cart_id).subscribe((res)=>{
+      this.allCart=res
+      console.log("add to post:",this.allCart);
 
-  //   })
-  // }
-  // addItemTocart() {
-  //  email:window.localStorage.getItem('email'),
-  //   // {
-  //   //   cartProduct=res.filter(x=>x.email==Storage.email)
-  //   // }
-  //   this.Activate.paramMap.subscribe((params) => {
-  //     this.cart_id = params.get('_id')
-  //     console.log("id", this.cart_id);
-  //     // this.UserSer.AddToCart(this.allCart).subscribe((res)=>{
-  //     //   this.allCart=res
-  //     //   console.log(this.allCart);
-  //     this.UserSer.AddToCart(this.cart_id).subscribe((res: any) => {
-  //       console.log(res);
-  //       this.cart_details = res
-  //     })
-  //   })
-  // }
+    })
+  }
+  
 
-//   addItemTocart() {
-//     // this.Storage.email = window.localStorage.getItem('email')
 
-//     this.UserSer.AddToCart(obj).subscribe((res: any) => {
-// console.log("responce:", res);
-
-//     })
-//   }
 }
 
