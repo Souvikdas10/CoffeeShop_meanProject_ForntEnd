@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class StorageService {
+  email!: string;
+ 
 
   constructor() { }
   setData(name:string,email:string,id:string,token:string){

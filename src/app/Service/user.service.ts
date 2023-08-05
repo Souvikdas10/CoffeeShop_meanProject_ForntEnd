@@ -15,8 +15,10 @@ export class UserService {
   memuPost_api: string = "http://localhost:2100/getItem";
   single_data_api: string = "http://localhost:2100/single";
   profile_api: string = "http://localhost:2100/profile";
-  Cart_api: string = "http://localhost:2100/getcart";
-  add_api: string = "http://localhost:2100/addcart";
+
+  Cart_api: string = "http://localhost:3000/cart";
+
+  // add_api: string = "http://localhost:2100/addcart";
 
 
 
@@ -57,11 +59,10 @@ export class UserService {
 
 Cart_data():Observable<Cart[]>{
   return this.http.get<Cart[]>(this.Cart_api)
-
 }
-AddToCart(obj:any):Observable<Cart[]>{
-  return this.http.post<Cart[]>(this.add_api,obj)
 
+AddToCart(obj:any):Observable<Cart[]>{
+  return this.http.post<Cart[]>(this.Cart_api,obj)
 }
 
 }

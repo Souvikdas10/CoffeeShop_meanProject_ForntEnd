@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 
 @Component({
@@ -9,61 +10,72 @@ import { UserService } from 'src/app/Service/user.service';
 })
 export class DetailsComponent implements OnInit {
   allCart: any = {};
-  cart_id!:any;
-  cart_details!:any;
-single_details!:any
-details_id!:any
-imagePath:any=""
-baseUrl: string = "http://localhost:2100/"
-folderPath: string = "upload/"
+  cart_id!: any;
+  cart_details!: any;
+  single_details!: any
+  details_id!: any
+  imagePath: any = ""
+  baseUrl: string = "http://localhost:2100/"
+  folderPath: string = "upload/"
 
 
   constructor(private UserSer: UserService,
-              private Activate: ActivatedRoute) { }
+    private Storage: StorageService,
+    private Activate: ActivatedRoute) { }
 
 
-  ngOnInit(): void { 
-   this.Activate.paramMap.subscribe((params)=>{
-    this.details_id=params.get('_id')
-    // console.log("id",this.details_id);
-    this.UserSer.single_data_fetch(this.details_id).subscribe((res:any)=>{
-      console.log(res.data);
-      this.single_details=res.data
+  ngOnInit(): void {
+    this.Activate.paramMap.subscribe((params) => {
+      this.details_id = params.get('_id')
+      // console.log("id",this.details_id);
+      this.UserSer.single_data_fetch(this.details_id).subscribe((res: any) => {
+        console.log(res.data);
+        this.single_details = res.data
 
 
-      this.imagePath = this.baseUrl + this.folderPath 
-      console.log(this.imagePath);     
+        this.imagePath = this.baseUrl + this.folderPath
+        console.log(this.imagePath);
+      })
     })
-   })
-  //  this.UserSer.Cart_data(this.allCart).subscribe((res)=>{
-  //    this.allCart=res
-  //    console.log(this.allCart);
-     
-  //  })
-    
+    //  this.UserSer.Cart_data(this.allCart).subscribe((res)=>{
+    //    this.allCart=res
+    //    console.log(this.allCart);
+
+    //  })
   }
   // addItemTocart(details_id: number){
   //   this.allCart.details_id=details_id;
   //   this.UserSer.Cart_data().subscribe((res)=>{
   //     this.single_details=res
   //     console.log(this.single_details);
-      
+
   //   })
   // }
-addItemTocart(){
-  
-  this.Activate.paramMap.subscribe((params)=>{
-    this.cart_id=params.get('_id')
-    console.log("id",this.cart_id);  
-  // this.UserSer.AddToCart(this.allCart).subscribe((res)=>{
-  //   this.allCart=res
-  //   console.log(this.allCart);
-  this.UserSer.AddToCart(this.cart_id).subscribe((res:any)=>{
-    console.log(res);
-    this.cart_details=res
-  })
-})
-}
+  // addItemTocart() {
+  //  email:window.localStorage.getItem('email'),
+  //   // {
+  //   //   cartProduct=res.filter(x=>x.email==Storage.email)
+  //   // }
+  //   this.Activate.paramMap.subscribe((params) => {
+  //     this.cart_id = params.get('_id')
+  //     console.log("id", this.cart_id);
+  //     // this.UserSer.AddToCart(this.allCart).subscribe((res)=>{
+  //     //   this.allCart=res
+  //     //   console.log(this.allCart);
+  //     this.UserSer.AddToCart(this.cart_id).subscribe((res: any) => {
+  //       console.log(res);
+  //       this.cart_details = res
+  //     })
+  //   })
+  // }
 
+//   addItemTocart() {
+//     // this.Storage.email = window.localStorage.getItem('email')
+
+//     this.UserSer.AddToCart(obj).subscribe((res: any) => {
+// console.log("responce:", res);
+
+//     })
+//   }
 }
 

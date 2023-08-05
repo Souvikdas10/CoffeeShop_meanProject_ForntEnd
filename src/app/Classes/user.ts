@@ -5,7 +5,7 @@ export class User {
     password!: string;
     image!: File;
 
-    
+
 }
 
 export class Contact {
@@ -22,8 +22,11 @@ export class Menu {
 }
 
 export class Cart {
-    customer_id!: string;
-    item_id!: string;
-    quenty!: Number;
-    image!: File;
+
+    "id"!: number
+    "email"!: string
+    "pid"!: string
+    "product_name"!: string
+    "product_price"!: number
+    "quantity"!: number
 }
