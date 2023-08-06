@@ -25,15 +25,22 @@
                   <a class="nav-link" routerLink="/contact">Contact Us</a>
                </li>
                <a class="nav-link" routerLink="/Cart"><i class="fa fa-cart-plus fs-5" style="color: white;"></i>
-               <span class="position-absolute translate-middle badge rounded rounded-pill bg-danger">{{totalItem}}
-                  <span class="visually-hidden"></span>
-               </span>
+                  <span class="position-absolute translate-middle badge rounded rounded-pill bg-danger">{{totalItem}}
+                     <span class="visually-hidden"></span>
+                  </span>
                </a>
-               
+
                <li class="nav-item">
                   <div class="dropdown">
                      <!-- <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> -->
-                     <a class="nav-link" href="#" data-toggle="dropdown"><i class="fa-sharp fa-solid fa-user"></i></a>
+
+                        <ng-container *ngIf="!logggedIn()">
+                           <a class="nav-link" href="#" data-toggle="dropdown"><i class="fa-sharp fa-solid fa-user"></i></a>
+                           </ng-container>
+                           <ng-container *ngIf="logggedIn()">
+                     <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a>
+                     </ng-container>
+
                      <!-- <span class="caret"></span></button> -->
                      <ul class="dropdown-menu ">
                         <ng-container *ngIf="!logggedIn()">
@@ -41,9 +48,17 @@
                            <li><a class="dropdown-item" href="/login">Sign In</a></li>
                         </ng-container>
                         <br>
+                        <!-- </ul> -->
+
+                        <!-- <ng-container *ngIf="logggedIn()"> -->
+                        <!-- <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a> -->
+                           <!-- </ng-container> -->
+                        <!-- <ul class="dropdown-menu "> -->
 
                         <ng-container *ngIf="logggedIn()">
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                           <!-- <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a> -->
+
+                           <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>
                         </ng-container>
                         <ng-container *ngIf="logggedIn()">

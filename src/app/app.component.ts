@@ -16,12 +16,32 @@ export class AppComponent {
   name!: any;
   // image!: any;
   load: boolean = false;
+  profile_pic: any = {};
+  baseUrl: string = "http://localhost:2100/"
+  folderPath: string = "upload/"
+  img_path: any = "";
+
   totalItem=0;
 
   constructor(private router: Router,
     private userser:UserService,
-    private storeSer: StorageService
-  ) { }
+    private storeSer: StorageService,
+    private userSer: UserService
+  ) { 
+    this.userSer.profile_data().subscribe((res: any) => {
+      this.profile_pic = res.data
+      console.log("profile home:", this.profile_pic);
+
+      if (this.profile_pic.image == "undefined" || this.profile_pic.image == "") {
+        this.img_path = "assets/images/demo.png"
+      } else {
+      this.img_path = this.baseUrl + this.folderPath + this.profile_pic.image 
+      console.log("img:",this.img_path);
+      }
+
+    })
+  }
+
   ngOnInit(): void {
     this.router.events.subscribe(enent => {
       if (enent instanceof RouteConfigLoadStart) {

@@ -20,7 +20,12 @@
         <!-- <td>{{cartp.itemDetails.slice(0,20)}}</td> -->
         <td class="table-secondary">{{cartp.price}}</td>
         <td class="table-primary">1</td>
-        <td class="table-danger"><button class="btn btn-danger" (click)="del(cartp.id)"><i class="fa-sharp fa-solid fa-trash"></i></button></td>
+        <td class="table-danger">
+          <button class="btn btn-danger" (click)="del(cartp.id)">
+            <!-- <i class="fa-sharp fa-solid fa-trash"></i> -->
+            Remove
+          </button>
+        </td>
        
       </tr>
     </tbody>
