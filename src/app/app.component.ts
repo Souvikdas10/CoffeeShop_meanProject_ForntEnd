@@ -30,13 +30,13 @@ export class AppComponent {
   ) { 
     this.userSer.profile_data().subscribe((res: any) => {
       this.profile_pic = res.data
-      console.log("profile home:", this.profile_pic);
+      // console.log("profile home:", this.profile_pic);
 
       if (this.profile_pic.image == "undefined" || this.profile_pic.image == "") {
         this.img_path = "assets/images/demo.png"
       } else {
       this.img_path = this.baseUrl + this.folderPath + this.profile_pic.image 
-      console.log("img:",this.img_path);
+      // console.log("img:",this.img_path);
       }
 
     })

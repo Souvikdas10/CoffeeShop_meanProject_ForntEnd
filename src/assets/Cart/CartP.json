@@ -1,16 +1,17 @@
 {
   "cart": [
     {
-      "_id": "64afd8ecb070f2ccd6a9b193",
-      "itemName": "Cappuccino ",
-      "itemDetails": "Variations of the drink involve the use of cream instead of milk, using non-dairy milk substitutes and flavoring with cinnamon (in the United States) or chocolate powder (in Europe). It is typically smaller in volume than a caffè latte, with a thicker layer of microfoam.",
-      "price": "167",
-      "image": "Cappuccino.jpg",
+      "_id": "64b9608ed82c0031b50b0994",
+      "itemName": "Turkish",
+      "itemDetails": "The Turkish like their coffee light and sweet. Hence, a majority of this coffee is sugar water.",
+      "price": "500",
+      "image": "turkish-coffee.jpg",
       "status": true,
-      "createdAt": "2023-07-13T10:58:52.473Z",
-      "updatedAt": "2023-07-29T08:34:39.137Z",
+      "quantity":1,
+      "createdAt": "2023-07-20T16:27:59.290Z",
+      "updatedAt": "2023-07-20T16:27:59.290Z",
       "__v": 0,
-      "id": 4
+      "id": 1
     }
   ]
 }

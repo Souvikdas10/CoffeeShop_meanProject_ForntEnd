@@ -13,7 +13,9 @@ export class CartComponent implements OnInit {
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
   count:number=1
-  subTotal:number=0;
+  // subTotal:number=0;
+  additionalCharges:number = 0;
+
   constructor(private userSer: UserService,
     private stored: StorageService) { }
   ngOnInit(): void {
@@ -49,6 +51,20 @@ export class CartComponent implements OnInit {
   }
 
 
+  getSubtotal(item: any): number {
+    return this.userSer.getSubtotal(item);
+  }
 
+  getTotal(item: any): number {
+    let total = 0;
+    this.userSer.forEach((element:any) => {
+      total += this.getSubtotal(element);
+    });
+    return total;
+  }
+
+  // getGrandTotal(): number {
+  //   return this.getTotal() + this.additionalCharges;
+  // }
 
 }

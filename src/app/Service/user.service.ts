@@ -9,6 +9,9 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class UserService {
+  forEach(arg0: (item: any) => void) {
+    throw new Error('Method not implemented.');
+  }
   registation_api: string = "http://localhost:2100/reg";
   login_api: string = "http://localhost:2100/login";
   contact_api: string = "http://localhost:2100/contact";
@@ -19,7 +22,6 @@ export class UserService {
   Cart_api: string = "http://localhost:3000/cart";
 
   // add_api: string = "http://localhost:2100/addcart";
-
 
 
 
@@ -53,7 +55,7 @@ export class UserService {
   profile_data(): Observable<User[]> {
     let data=this.auth.getData()
     let pid=data[0].id
-    console.log("profile Data:",data,pid);
+    // console.log("profile Data:",data,pid);
     return this.http.get<User[]>(`${this.profile_api}/${pid}`)
   }
 
@@ -68,5 +70,22 @@ AddToCart(obj:any):Observable<Cart[]>{
 CartItemDelete(id:number):Observable<Cart[]>{
   return this.http.delete<Cart[]>(`${this.Cart_api}/${id}`)
 }
+
+calculateDiscountedPrice(price: number) {
+  const discountPercentage =0.20; // 20% off
+  const discountAmount = price * discountPercentage;
+  const discountedPrice = price - discountAmount;
+  return discountedPrice;
+}
+
+
+getSubtotal(item: any): number {
+  return item.quantity * item.price;
+}
+
+getGrandtotal(item: any): number {
+  return item.subTotal + item.price;
+}
+
 
 }
