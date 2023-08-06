@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit {
   imagePath: any = ""
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
-  count: number = 1
 
 
   constructor(private UserSer: UserService,
@@ -60,12 +59,7 @@ export class DetailsComponent implements OnInit {
     })
   }
 
-  inc() {
-    this.count++;
-  }
-  dec() {
-    this.count--;
-  }
+ 
 
 }
 

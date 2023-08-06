@@ -34,11 +34,14 @@
                   <div class="dropdown">
                      <!-- <button class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"> -->
 
-                        <ng-container *ngIf="!logggedIn()">
-                           <a class="nav-link" href="#" data-toggle="dropdown"><i class="fa-sharp fa-solid fa-user"></i></a>
-                           </ng-container>
-                           <ng-container *ngIf="logggedIn()">
-                     <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a>
+                     <ng-container *ngIf="!logggedIn()">
+                        <a class="nav-link" href="#" data-toggle="dropdown"><i
+                              class="fa-sharp fa-solid fa-user"></i></a>
+                     </ng-container>
+                     <ng-container *ngIf="logggedIn()">
+                        <a class="nav-link" href="#" data-toggle="dropdown">
+                           <img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a>
+                        <p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
                      </ng-container>
 
                      <!-- <span class="caret"></span></button> -->
@@ -52,7 +55,7 @@
 
                         <!-- <ng-container *ngIf="logggedIn()"> -->
                         <!-- <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a> -->
-                           <!-- </ng-container> -->
+                        <!-- </ng-container> -->
                         <!-- <ul class="dropdown-menu "> -->
 
                         <ng-container *ngIf="logggedIn()">
@@ -61,9 +64,9 @@
                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>
                         </ng-container>
-                        <ng-container *ngIf="logggedIn()">
+                        <!-- <ng-container *ngIf="logggedIn()">
                            <p class="text-warning mt-3 fw-semibold">Hello, {{name}}</p>
-                        </ng-container>
+                        </ng-container> -->
 
                      </ul>
                   </div>

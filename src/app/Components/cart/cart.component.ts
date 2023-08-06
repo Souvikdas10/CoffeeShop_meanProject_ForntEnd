@@ -12,17 +12,25 @@ export class CartComponent implements OnInit {
   img_path!: any
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
+  count:number=1
+  subTotal:number=0;
   constructor(private userSer: UserService,
     private stored: StorageService) { }
   ngOnInit(): void {
     this.userSer.Cart_data().subscribe((res) => {
-      this.item = res
+      this.item = res;
+      // this.item.forEach(element => {
+      //   this.subTotal=this.subTotal +element.price
+      // });
+
 
       this.img_path = this.baseUrl + this.folderPath
       console.log(this.img_path);
     })
+
   }
 
+  
   del(id: number) {
     this.userSer.CartItemDelete(id).subscribe((res) => {
       console.log("Cart Item Delete:",res);
@@ -31,4 +39,16 @@ export class CartComponent implements OnInit {
       })
     })
   }
+
+
+  inc() {
+    this.count++;
+  }
+  dec() {
+    this.count--;
+  }
+
+
+
+
 }
