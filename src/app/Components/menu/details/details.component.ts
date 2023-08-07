@@ -17,7 +17,6 @@ export class DetailsComponent implements OnInit {
   imagePath: any = ""
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
-  value: any
   existing:any={}
 
   constructor(private UserSer: UserService,
@@ -85,23 +84,9 @@ export class DetailsComponent implements OnInit {
           console.log("add to post:", this.allCart);
           alert("Item Cart Successfully")
           this.router.navigate(['/Cart'])
-        })
-
-        
+        })     
       }
-
-
-
     })
-
-    
-   
-
-  
-  
   }
-
-
-
 }
 
