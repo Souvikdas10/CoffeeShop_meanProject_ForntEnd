@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
-import { Cart, Contact, Menu, User } from '../Classes/user';
+import { Buy, Cart, Contact, Menu, User } from '../Classes/user';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -18,6 +18,8 @@ export class UserService {
   memuPost_api: string = "http://localhost:2100/getItem";
   single_data_api: string = "http://localhost:2100/single";
   profile_api: string = "http://localhost:2100/profile";
+  buyNow_api: string = "http://localhost:2100/buynow";
+
 
   Cart_api: string = "http://localhost:3000/cart";
 
@@ -69,6 +71,10 @@ AddToCart(obj:any):Observable<Cart[]>{
 
 CartItemDelete(id:number):Observable<Cart[]>{
   return this.http.delete<Cart[]>(`${this.Cart_api}/${id}`)
+}
+
+BuyNow(formdata: any): Observable<Buy[]> {
+  return this.http.post<Buy[]>(this.buyNow_api, formdata)
 }
 
 calculateDiscountedPrice(price: number) {

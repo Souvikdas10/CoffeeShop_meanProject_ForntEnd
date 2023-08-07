@@ -30,3 +30,11 @@ export class Cart {
     "product_price"!: number
     "quantity"!: number
 }
+export class Buy {
+    name!: string;
+    address!: string;
+    contact!: string;
+    city!: string;
+    state!: string;
+    zip!: string;
+}
