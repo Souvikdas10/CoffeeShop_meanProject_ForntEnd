@@ -24,12 +24,10 @@
         <td class="table-warning">{{cartp.itemName}}</td>
         <!-- <td>{{cartp.itemDetails.slice(0,20)}}</td> -->
         <td class="table-secondary">{{cartp.price}}</td>
-        <td class="table-primary"> <button class="btn btn-info" (click)="inc()">
-            <i class="fa fa-plus"></i></button><b>&nbsp;&nbsp;&nbsp;{{count}}&nbsp;&nbsp;&nbsp;</b>
-          <button class="btn btn-info" (click)="dec()">
-            <i class="fa fa-minus"></i></button>
-        </td>
+        
+        <td><button type="button"(click)="inc()"> + </button> {{cartp.quantity}} <button type="button" (click)="dec()"> - </button>
 
+        </td>
         <td class="table-success">{{ getSubtotal(cartp) }}</td>
         <!-- <td><strong>{{}}</strong></td> -->
         <td class="table-danger">

@@ -66,11 +66,16 @@ Cart_data():Observable<Cart[]>{
 }
 
 AddToCart(obj:any):Observable<Cart[]>{
+  console.log("cart:",obj);
+  
   return this.http.post<Cart[]>(this.Cart_api,obj)
 }
 
 CartItemDelete(id:number):Observable<Cart[]>{
   return this.http.delete<Cart[]>(`${this.Cart_api}/${id}`)
+}
+editQuant(id:number,data:any):Observable<Cart[]>{
+  return this.http.put<Cart[]>(`${this.Cart_api}/${id}`,data)
 }
 
 BuyNow(formdata: any): Observable<Buy[]> {

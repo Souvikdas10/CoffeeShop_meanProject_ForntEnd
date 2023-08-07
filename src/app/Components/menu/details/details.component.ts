@@ -10,14 +10,15 @@ import { UserService } from 'src/app/Service/user.service';
 })
 export class DetailsComponent implements OnInit {
   allCart: any = {};
-  cart_id!: any;
+  cartPro!: any;
   cart_details!: any;
   single_details!: any
   details_id!: any
   imagePath: any = ""
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
-
+  value: any
+  existing:any={}
 
   constructor(private UserSer: UserService,
     private Storage: StorageService,
@@ -48,18 +49,59 @@ export class DetailsComponent implements OnInit {
   }
 
 
-  addItemTocart(pid: string) {
+  addItemTocart(product: any) {
     // this.allCart.details_id
-    this.cart_id = pid
-    this.UserSer.AddToCart(this.cart_id).subscribe((res) => {
-      this.allCart = res
-      console.log("add to post:", this.allCart);
-      alert("Item Cart Successfully")
-      this.router.navigate(['/Cart'])
+    this.cartPro = product
+    // console.log("cart id:", this.cartPro);
+    this.UserSer.Cart_data().subscribe(res=>{
+      let all_cart_product=res;
+      // console.log("All Cart Products: ",all_cart_product);
+      let prod_id=all_cart_product.findIndex((x:any)=>x._id==this.cartPro._id && x.email==window.localStorage.getItem('email'))
+
+      if(prod_id==-1)
+      {
+        let cart_product = {
+          ...this.cartPro,
+          email: window.localStorage.getItem('email'),
+          quantity: 1
+        }
+        this.UserSer.AddToCart(cart_product).subscribe((res) => {
+          this.allCart = res
+          console.log("add to post:", this.allCart);
+          alert("Item Cart Successfully")
+          this.router.navigate(['/Cart'])
+        })
+
+      }
+      else{
+        this.existing=all_cart_product.find((x:any)=>x._id==this.cartPro._id && x.email==window.localStorage.getItem('email'))
+        console.log("Existing: ",this.existing);
+        let new_data={
+          ...this.existing,
+          quantity:this.existing?.quantity+1
+        }
+        this.UserSer.editQuant(this.existing.id,new_data).subscribe((res) => {
+          this.allCart = res
+          console.log("add to post:", this.allCart);
+          alert("Item Cart Successfully")
+          this.router.navigate(['/Cart'])
+        })
+
+        
+      }
+
+
+
     })
+
+    
+   
+
+  
+  
   }
 
- 
+
 
 }
 

@@ -55,7 +55,7 @@ export class AppComponent {
       }
     })
     this.userser.Cart_data().subscribe((res)=>{
-      this.totalItem=res.length
+      this.totalItem=res.length;
     })
   }
 

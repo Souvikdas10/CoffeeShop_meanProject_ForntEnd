@@ -7,11 +7,12 @@
       "price": "500",
       "image": "turkish-coffee.jpg",
       "status": true,
-      "quantity":1,
       "createdAt": "2023-07-20T16:27:59.290Z",
       "updatedAt": "2023-07-20T16:27:59.290Z",
       "__v": 0,
-      "id": 1
+      "email": "souvikd179@gmail.com",
+      "quantity": 3,
+      "id": 3
     }
   ]
 }

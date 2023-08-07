@@ -30,7 +30,7 @@ export class BuyNowComponent implements OnInit{
     })
   }
   submitdata(){
-    console.log("recived data:",this.registaionInputValue.value);
+    // console.log("recived data:",this.registaionInputValue.value);
     
     this.buyser.BuyNow(this.registaionInputValue.value).subscribe((res:any)=>{
      console.log("submited data:",res);

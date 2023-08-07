@@ -12,9 +12,12 @@ export class CartComponent implements OnInit {
   img_path!: any
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
-  count:number=1
+  count: number = 1
   // subTotal:number=0;
-  additionalCharges:number = 0;
+  quantity: number = 0;
+  miniquantity: number = 0;
+  maxquantity: number = 10;
+  additionalCharges: number = 0;
 
   constructor(private userSer: UserService,
     private stored: StorageService) { }
@@ -32,10 +35,10 @@ export class CartComponent implements OnInit {
 
   }
 
-  
+
   del(id: number) {
     this.userSer.CartItemDelete(id).subscribe((res) => {
-      console.log("Cart Item Delete:",res);
+      console.log("Cart Item Delete:", res);
       this.userSer.Cart_data().subscribe((res) => {
         this.item = res
       })
@@ -44,10 +47,14 @@ export class CartComponent implements OnInit {
 
 
   inc() {
-    this.count++;
+    if (this.quantity < this.maxquantity) {
+      this.quantity++
+    }
   }
   dec() {
-    this.count--;
+    if (this.quantity > this.miniquantity) {
+      this.quantity--
+    }
   }
 
 
@@ -57,7 +64,7 @@ export class CartComponent implements OnInit {
 
   getTotal(item: any): number {
     let total = 0;
-    this.userSer.forEach((element:any) => {
+    this.userSer.forEach((element: any) => {
       total += this.getSubtotal(element);
     });
     return total;
