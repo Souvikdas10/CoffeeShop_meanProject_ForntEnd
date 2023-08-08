@@ -9,6 +9,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class UserService {
+ 
   forEach(arg0: (item: any) => void) {
     throw new Error('Method not implemented.');
   }
@@ -24,7 +25,7 @@ export class UserService {
   Cart_api: string = "http://localhost:3000/cart";
 
   // add_api: string = "http://localhost:2100/addcart";
-
+  items!: any[];
 
 
   constructor(private http: HttpClient, private auth: StorageService) { }
@@ -97,6 +98,11 @@ getSubtotal(item: any): number {
 getGrandtotal(item: any): number {
   return item.subTotal + item.price;
 }
-
+// getItems(): any[] {
+//   return this.items;
+// }
+// calculateTotal(): number {
+//   return this.items.reduce((total, item) => total + item.price, 0);
+// }
 
 }

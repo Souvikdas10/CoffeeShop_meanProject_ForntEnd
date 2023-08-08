@@ -32,12 +32,12 @@ export class AppComponent {
       this.profile_pic = res.data
       // console.log("profile home:", this.profile_pic);
 
-      if (this.profile_pic.image == "undefined" || this.profile_pic.image == "") {
-        this.img_path = "assets/images/demo.png"
-      } else {
+      // if (this.profile_pic.image == "undefined" || this.profile_pic.image == "") {
+      //   this.img_path = "assets/images/demo.png"
+      // } else {
       this.img_path = this.baseUrl + this.folderPath + this.profile_pic.image 
       // console.log("img:",this.img_path);
-      }
+      // }
 
     })
   }
@@ -54,9 +54,9 @@ export class AppComponent {
         }, 1500)
       }
     })
-    this.userser.Cart_data().subscribe((res)=>{
-      this.totalItem=res.length;
-    })
+    // this.userser.Cart_data().subscribe((res:any)=>{
+    //   this.totalItem=res.length;
+    // })
   }
 
   //loggin 
