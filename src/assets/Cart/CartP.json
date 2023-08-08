@@ -27,6 +27,20 @@
       "email": "souvikd179@gmail.com",
       "quantity": 2,
       "id": 4
+    },
+    {
+      "_id": "64baaefd7979b73df5876cf2",
+      "itemName": "Frappé",
+      "itemDetails": "One of the fanciest coffee drinks out there, and the one that contains the least amount of coffee in comparison to other items. This Starbucks favourite has to be served cold to be enjoyed. Ideal serving: 10g (or 2 tsp.) instant coffee + 15ml sugar water + 90ml cold water with 3-5 ice cubes + 90ml coffee foam (in that order) in a 250ml glass.",
+      "price": "450",
+      "image": "Cafefrappe.jpg",
+      "status": true,
+      "createdAt": "2023-07-21T16:14:53.465Z",
+      "updatedAt": "2023-07-21T16:14:53.465Z",
+      "__v": 0,
+      "email": "nabag123@gmail.com",
+      "quantity": 1,
+      "id": 5
     }
   ]
 }

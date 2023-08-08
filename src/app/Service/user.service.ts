@@ -9,6 +9,7 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class UserService {
+  
  
   forEach(arg0: (item: any) => void) {
     throw new Error('Method not implemented.');
@@ -95,14 +96,16 @@ getSubtotal(item: any): number {
   return item.quantity * item.price;
 }
 
-getGrandtotal(item: any): number {
-  return item.subTotal + item.price;
-}
+// getGrandtotal(item: any): number {
+//   return item.subTotal + item.price;
+// }
 // getItems(): any[] {
 //   return this.items;
 // }
 // calculateTotal(): number {
 //   return this.items.reduce((total, item) => total + item.price, 0);
 // }
+
+
 
 }

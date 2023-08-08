@@ -13,7 +13,7 @@ export class CartComponent implements OnInit {
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
   // count: number = 1
-  // subTotal:number=0;
+  subTotal:number=0;
   // existing: any = {}
   allCart: any = {};
   cartPro!: any;
@@ -74,21 +74,21 @@ export class CartComponent implements OnInit {
     return this.userSer.getSubtotal(item);
   }
 
-  getTotal(item: any): number {
-    let total = 0;
-    this.userSer.forEach((element: any) => {
-      total += this.getSubtotal(element);
-    });
-    return total;
-  }
+  // getTotal(item: any): number {
+  //   let total = 0;
+  //   this.userSer.forEach((element: any) => {
+  //     total += this.getSubtotal(element);
+  //   });
+  //   return total;
+  // }
 
-  getGrandtotal(price: any) {
-    this.userSer.forEach((element: any) => {
-      // this.grandTotal = this.getSubtotal(element);
-      // this.grandTotal=this.grandTotal+element.price
-      this.grandTotal = this.grandTotal + element.price
-    });
-  }
+  // getGrandtotal(price: any) {
+  //   this.userSer.forEach((element: any) => {
+  //     // this.grandTotal = this.getSubtotal(element);
+  //     this.grandTotal=this.grandTotal+element.price
+  //     // this.grandTotal = this.grandTotal + element.price
+  //   });
+  // }
 
   // getGrandTotal(): number {
   //   return this.getTotal(item :any) + this.additionalCharges;
