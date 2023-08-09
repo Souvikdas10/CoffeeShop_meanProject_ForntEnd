@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "register", component: RegistationComponent },
   { path: "login", component: LoginComponent },
   {path:"profile",component:ProfileComponent, canActivate:[authGuardGuard]},
-  {path:"Cart",component:CartComponent },
+  {path:"Cart",component:CartComponent, canActivate:[authGuardGuard] },
   {path:"buynow",component:BuyNowComponent},
   { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
 ];

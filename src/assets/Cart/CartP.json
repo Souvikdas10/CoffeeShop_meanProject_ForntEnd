@@ -1,6 +1,21 @@
 {
   "cart": [
     {
+      "_id": "64afdccdb070f2ccd6a9b1b4",
+      "itemName": "COLD BREW COFFEE",
+      "itemDetails": "Cold Brew Coffee is a smooth, cold beverage prepared by brewing freshly ground coffee in cold water. In the Cold Brew process, time makes up for heat.",
+      "price": "150",
+      "image": "cold.jpg",
+      "status": true,
+      "createdAt": "2023-07-13T11:15:25.471Z",
+      "updatedAt": "2023-07-13T11:15:25.471Z",
+      "__v": 0,
+      "email": "souvikd179@gmail.com",
+      "quantity": 2,
+      "sub_total": 300,
+      "id": 2
+    },
+    {
       "_id": "64afd8ecb070f2ccd6a9b193",
       "itemName": "Cappuccino ",
       "itemDetails": "Variations of the drink involve the use of cream instead of milk, using non-dairy milk substitutes and flavoring with cinnamon (in the United States) or chocolate powder (in Europe). It is typically smaller in volume than a caffè latte, with a thicker layer of microfoam.",
@@ -13,22 +28,7 @@
       "email": "souvikd179@gmail.com",
       "quantity": 1,
       "sub_total": 167,
-      "id": 1
-    },
-    {
-      "_id": "64afdccdb070f2ccd6a9b1b4",
-      "itemName": "COLD BREW COFFEE",
-      "itemDetails": "Cold Brew Coffee is a smooth, cold beverage prepared by brewing freshly ground coffee in cold water. In the Cold Brew process, time makes up for heat.",
-      "price": "150",
-      "image": "cold.jpg",
-      "status": true,
-      "createdAt": "2023-07-13T11:15:25.471Z",
-      "updatedAt": "2023-07-13T11:15:25.471Z",
-      "__v": 0,
-      "email": "souvikd179@gmail.com",
-      "quantity": 1,
-      "sub_total": 150,
-      "id": 2
+      "id": 3
     }
   ]
 }
