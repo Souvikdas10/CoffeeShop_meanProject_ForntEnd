@@ -62,7 +62,8 @@ export class DetailsComponent implements OnInit {
         let cart_product = {
           ...this.cartPro,
           email: window.localStorage.getItem('email'),
-          quantity: 1
+          quantity: 1,
+          sub_total:Number(this.single_details.price)
         }
         this.UserSer.AddToCart(cart_product).subscribe((res) => {
           this.allCart = res
@@ -77,7 +78,8 @@ export class DetailsComponent implements OnInit {
         console.log("Existing: ",this.existing);
         let new_data={
           ...this.existing,
-          quantity:this.existing?.quantity+1
+          quantity:this.existing?.quantity+1,
+          sub_total:this.existing?.sub_total+Number(this.single_details.price)
         }
         this.UserSer.editQuant(this.existing.id,new_data).subscribe((res) => {
           this.allCart = res

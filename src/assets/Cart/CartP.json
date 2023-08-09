@@ -1,18 +1,19 @@
 {
   "cart": [
     {
-      "_id": "64b9608ed82c0031b50b0994",
-      "itemName": "Turkish",
-      "itemDetails": "The Turkish like their coffee light and sweet. Hence, a majority of this coffee is sugar water.",
-      "price": "500",
-      "image": "turkish-coffee.jpg",
+      "_id": "64afd8ecb070f2ccd6a9b193",
+      "itemName": "Cappuccino ",
+      "itemDetails": "Variations of the drink involve the use of cream instead of milk, using non-dairy milk substitutes and flavoring with cinnamon (in the United States) or chocolate powder (in Europe). It is typically smaller in volume than a caffè latte, with a thicker layer of microfoam.",
+      "price": "167",
+      "image": "Cappuccino.jpg",
       "status": true,
-      "createdAt": "2023-07-20T16:27:59.290Z",
-      "updatedAt": "2023-07-20T16:27:59.290Z",
+      "createdAt": "2023-07-13T10:58:52.473Z",
+      "updatedAt": "2023-07-29T08:34:39.137Z",
       "__v": 0,
       "email": "souvikd179@gmail.com",
-      "quantity": 4,
-      "id": 3
+      "quantity": 1,
+      "sub_total": 167,
+      "id": 1
     },
     {
       "_id": "64afdccdb070f2ccd6a9b1b4",
@@ -25,22 +26,9 @@
       "updatedAt": "2023-07-13T11:15:25.471Z",
       "__v": 0,
       "email": "souvikd179@gmail.com",
-      "quantity": 2,
-      "id": 4
-    },
-    {
-      "_id": "64baaefd7979b73df5876cf2",
-      "itemName": "Frappé",
-      "itemDetails": "One of the fanciest coffee drinks out there, and the one that contains the least amount of coffee in comparison to other items. This Starbucks favourite has to be served cold to be enjoyed. Ideal serving: 10g (or 2 tsp.) instant coffee + 15ml sugar water + 90ml cold water with 3-5 ice cubes + 90ml coffee foam (in that order) in a 250ml glass.",
-      "price": "450",
-      "image": "Cafefrappe.jpg",
-      "status": true,
-      "createdAt": "2023-07-21T16:14:53.465Z",
-      "updatedAt": "2023-07-21T16:14:53.465Z",
-      "__v": 0,
-      "email": "nabag123@gmail.com",
       "quantity": 1,
-      "id": 5
+      "sub_total": 150,
+      "id": 2
     }
   ]
 }

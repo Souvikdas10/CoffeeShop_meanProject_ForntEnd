@@ -20,7 +20,7 @@ export class AppComponent {
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
   img_path: any = "";
-
+  item:any;
   totalItem=0;
 
   constructor(private router: Router,
@@ -54,9 +54,10 @@ export class AppComponent {
         }, 1500)
       }
     })
-    // this.userser.Cart_data().subscribe((res:any)=>{
-    //   this.totalItem=res.length;
-    // })
+    
+    this.userser.Cart_data().subscribe((res:any)=>{
+      this.totalItem=res.length;
+    })
   }
 
   //loggin 

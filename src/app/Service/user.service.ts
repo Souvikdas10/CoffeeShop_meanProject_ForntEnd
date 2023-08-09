@@ -66,6 +66,9 @@ export class UserService {
 Cart_data():Observable<Cart[]>{
   return this.http.get<Cart[]>(this.Cart_api)
 }
+cartSingleData(id:number):Observable<Cart[]>{
+  return this.http.get<Cart[]>(`${this.Cart_api}/${id}`)
+}
 
 AddToCart(obj:any):Observable<Cart[]>{
   console.log("cart:",obj);
@@ -92,19 +95,12 @@ calculateDiscountedPrice(price: number) {
 }
 
 
-getSubtotal(item: any): number {
-  return item.quantity * item.price;
-}
+// getSubtotal(item: any): any{
+  
+//   return item.quantity * item.price;
+// }
 
-// getGrandtotal(item: any): number {
-//   return item.subTotal + item.price;
-// }
-// getItems(): any[] {
-//   return this.items;
-// }
-// calculateTotal(): number {
-//   return this.items.reduce((total, item) => total + item.price, 0);
-// }
+
 
 
 

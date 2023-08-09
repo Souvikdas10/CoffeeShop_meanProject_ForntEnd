@@ -29,6 +29,7 @@ export class Cart {
     "product_name"!: string
     "product_price"!: number
     "quantity"!: number
+    "sub_total"!:number
 }
 export class Buy {
     name!: string;

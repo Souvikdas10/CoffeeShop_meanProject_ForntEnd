@@ -14,12 +14,21 @@ export class MenuComponent implements OnInit {
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
   discountedPrice!: number;
-  originalPrice:any;
+  originalPrice!:any;
 
   constructor(private httpSer: UserService, private Activate: ActivatedRoute) {
-       this.originalPrice = 100;
+    this.httpSer.item_Menu().subscribe((res: any) => {
+      // this.allItem = Number(res.data.price);
+      // console.log("menu price:",this.allItem);
+      this.originalPrice = {
+        ...res,
+        price: res.price + (res.price)
+      }
+      console.log("menu price:",this.originalPrice);
+      
+      //  this.originalPrice = 100;
         this.discountedPrice = this.httpSer.calculateDiscountedPrice(this.originalPrice);
-    
+    })
 
   }
   ngOnInit(): void {

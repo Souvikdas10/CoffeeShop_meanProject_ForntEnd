@@ -41,7 +41,6 @@
                      <ng-container *ngIf="logggedIn()">
                         <a class="nav-link" href="#" data-toggle="dropdown">
                            <img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a>
-                        <p class="text-warning mt-3 fw-semibold">{{name}}</p>
                      </ng-container>
 
                      <!-- <span class="caret"></span></button> -->
@@ -57,6 +56,7 @@
 
                         <ng-container *ngIf="logggedIn()">
                            <!-- <a class="nav-link" href="#" data-toggle="dropdown"><img [src]="img_path" class="rounded-circle img-fluid" alt="user"> </a> -->
+                           <p class="text-success mt-3 fw-semibold">{{name}}</p>
 
                            <li><a class="dropdown-item" href="/profile">Profile</a></li>
                            <li><button class="dropdown-item" (click)="loggingOut()">LogOut</button></li>

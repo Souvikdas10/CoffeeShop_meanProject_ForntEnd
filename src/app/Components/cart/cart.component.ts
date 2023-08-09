@@ -12,17 +12,12 @@ export class CartComponent implements OnInit {
   img_path!: any
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
-  // count: number = 1
-  subTotal:number=0;
-  // existing: any = {}
   allCart: any = {};
   cartPro!: any;
-
-  // quantity: number = 0;
-  // miniquantity: number = 0;
-  // maxquantity: number = 10;
-  // additionalCharges: number = 0;
-
+  newIncData!: any;
+  newDecData!: any;
+  cartlength: number = 0;
+  subTotal: number = 0;
   grandTotal: number = 0;
 
   constructor(private userSer: UserService,
@@ -30,6 +25,9 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.userSer.Cart_data().subscribe((res) => {
       this.item = res;
+      // console.log("number of cart product:", this.item.length);
+      for (let i = 0; i < this.item.length; i++)
+        this.grandTotal += res[i].sub_total
       this.img_path = this.baseUrl + this.folderPath
       // console.log(this.img_path);
     })
@@ -45,56 +43,52 @@ export class CartComponent implements OnInit {
   }
 
 
-  inc(index: any) {
-    this.item[index].quantity++;
-    // this.userSer.Cart_data().subscribe(res => {
-    //   let all_cart_product = res;
-    //   console.log("cart page:", all_cart_product);
+  inc(id: any) {
 
-    //   this.existing = all_cart_product.find((x: any) => x._id == this.item._id)
-    //   console.log("aa Existing: ", this.existing);
-    //   let new_data = {
-    //     ...this.existing,
-    //     quantity: this.existing?.quantity + 1
-    //   }
-    //   this.userSer.editQuant(this.existing.id, new_data).subscribe((res) => {
-    //     this.allCart = res
-    //     console.log("add to post:", this.allCart);
-    //     alert("Item Cart Successfully")
-    //     // this.router.navigate(['/Cart'])
-    //   })
-    // })
+    // console.log("cart id:",id);
+    this.userSer.cartSingleData(id).subscribe((res: any) => {
+      // console.log("single cart data :",res.quantity);
+      this.newIncData = {
+        ...res,
+        quantity: res.quantity + 1,
+        sub_total: res.sub_total + Number(res.price)
+      }
+      this.userSer.editQuant(id, this.newIncData).subscribe((res) => {
+        this.allCart = res
+        console.log("add to post:", this.allCart);
+        // alert("Item Cart Successfully")
+        // this.router.navigate(['/Cart'])
+        this.userSer.Cart_data().subscribe((res) => {
+          this.item = res;
+          this.grandTotal = 0;
+          for (let i = 0; i < this.item.length; i++)
+            this.grandTotal += res[i].sub_total
+        })
+      })
+    })
   }
-  dec(index: any) {
-    this.item[index].quantity--;
+  dec(id: any) {
+    this.userSer.cartSingleData(id).subscribe((res: any) => {
+      this.newDecData = {
+        ...res,
+        quantity: res.quantity - 1,
+        sub_total: res.sub_total - Number(res.price)
+      }
+      this.userSer.editQuant(id, this.newDecData).subscribe((res) => {
+        this.allCart = res
+        console.log("add to post:", this.allCart);
+        // alert("Item Cart Successfully")
+        // this.router.navigate(['/Cart'])
+        this.userSer.Cart_data().subscribe((res) => {
+          this.item = res;
+          this.grandTotal = 0;
+          for (let i = 0; i < this.item.length; i--)
+            this.grandTotal += res[i].sub_total
+        })
+      })
+    })
   }
 
 
-  getSubtotal(item: any): number {
-    return this.userSer.getSubtotal(item);
-  }
-
-  // getTotal(item: any): number {
-  //   let total = 0;
-  //   this.userSer.forEach((element: any) => {
-  //     total += this.getSubtotal(element);
-  //   });
-  //   return total;
-  // }
-
-  // getGrandtotal(price: any) {
-  //   this.userSer.forEach((element: any) => {
-  //     // this.grandTotal = this.getSubtotal(element);
-  //     this.grandTotal=this.grandTotal+element.price
-  //     // this.grandTotal = this.grandTotal + element.price
-  //   });
-  // }
-
-  // getGrandTotal(): number {
-  //   return this.getTotal(item :any) + this.additionalCharges;
-  // }
-  // calculateGrandTotal(): void {
-  //   this.grandTotal = this.userSer.calculateTotal();
-  // }
-
+  
 }
