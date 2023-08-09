@@ -17,18 +17,18 @@ export class MenuComponent implements OnInit {
   originalPrice!:any;
 
   constructor(private httpSer: UserService, private Activate: ActivatedRoute) {
-    this.httpSer.item_Menu().subscribe((res: any) => {
-      // this.allItem = Number(res.data.price);
-      // console.log("menu price:",this.allItem);
-      this.originalPrice = {
-        ...res,
-        price: res.price + (res.price)
-      }
-      console.log("menu price:",this.originalPrice);
+    // this.httpSer.item_Menu().subscribe((res: any) => {
+    //   // this.allItem = Number(res.data.price);
+    //   // console.log("menu price:",this.allItem);
+    //   this.originalPrice = {
+    //     ...res,
+    //     price: res.price + (res.price)
+    //   }
+      // console.log("menu price:",this.originalPrice);
       
-      //  this.originalPrice = 100;
+       this.originalPrice = 100;
         this.discountedPrice = this.httpSer.calculateDiscountedPrice(this.originalPrice);
-    })
+    // })
 
   }
   ngOnInit(): void {
