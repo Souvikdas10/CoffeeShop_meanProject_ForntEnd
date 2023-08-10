@@ -11,8 +11,8 @@
       "updatedAt": "2023-07-13T11:15:25.471Z",
       "__v": 0,
       "email": "souvikd179@gmail.com",
-      "quantity": 2,
-      "sub_total": 300,
+      "quantity": 1,
+      "sub_total": 150,
       "id": 2
     },
     {
@@ -25,9 +25,9 @@
       "createdAt": "2023-07-13T10:58:52.473Z",
       "updatedAt": "2023-07-29T08:34:39.137Z",
       "__v": 0,
-      "email": "souvikd179@gmail.com",
-      "quantity": 1,
-      "sub_total": 167,
+      "email": "nabag123@gmail.com",
+      "quantity": 0,
+      "sub_total": 0,
       "id": 3
     }
   ]
