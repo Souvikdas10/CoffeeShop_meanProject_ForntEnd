@@ -1,4 +1,4 @@
-<!-- <div *ngIf="item.length > 0; else emptyCart"> -->
+<div *ngIf="item.length > 0; else emptyCart">
 
   <table class="table table-striped">
     <thead>
@@ -50,15 +50,15 @@
   <div class="buy">
     <button class="btn btn-outline-primary"><a routerLink="/buynow">Buy Now</a></button>
   </div>
-<!-- </div> -->
+</div>
 
 
 
-<!-- <ng-template #emptyCart>
+<ng-template #emptyCart>
   <div class="card" style="width: mt-4;">
     <div class="card-body">
       <h5 class="card-title">Your cart is empty</h5>
       <a routerLink="/menu" class="shop">Shop Now</a>
     </div>
   </div>
-</ng-template> -->
+</ng-template>

@@ -8,7 +8,9 @@ import { UserService } from 'src/app/Service/user.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  item: any;
+  // item: any=[];
+  item:any;
+  cart_items!:any;
   img_path!: any
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
@@ -24,7 +26,15 @@ export class CartComponent implements OnInit {
     private stored: StorageService) { }
   ngOnInit(): void {
     this.userSer.Cart_data().subscribe((res) => {
-      this.item = res;
+     this.item=res
+      // this.cart_items = res;
+      
+      // this.item=this.cart_items.filter((data:any)=>{
+      //   data.email==window.localStorage.getItem('email')
+        
+      // })
+      // console.log("all data:",this.item);
+      
       // console.log("number of cart product:", this.item.length);
       for (let i = 0; i < this.item.length; i++)
         this.grandTotal += res[i].sub_total
@@ -59,7 +69,10 @@ export class CartComponent implements OnInit {
         // alert("Item Cart Successfully")
         // this.router.navigate(['/Cart'])
         this.userSer.Cart_data().subscribe((res) => {
-          this.item = res;
+          this.cart_items = res;
+          // this.item=this.cart_items.filter((data:any)=>{
+          //   data.email==window.localStorage.getItem('email')
+          // })
           this.grandTotal = 0;
           for (let i = 0; i < this.item.length; i++)
             this.grandTotal += res[i].sub_total
@@ -82,7 +95,7 @@ export class CartComponent implements OnInit {
         this.userSer.Cart_data().subscribe((res) => {
           this.item = res;
           this.grandTotal = 0;
-          for (let i = 0; i < this.item.length; i--)
+          for (let i = 0; i < this.item.length; i++)
             this.grandTotal += res[i].sub_total
         })
       })
