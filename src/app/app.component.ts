@@ -57,7 +57,9 @@ export class AppComponent {
     
     this.userser.Cart_data().subscribe((res:any)=>{
       this.totalItem=res.length;
+      console.log("cart length:",res.length);
     })
+
   }
 
   //loggin 

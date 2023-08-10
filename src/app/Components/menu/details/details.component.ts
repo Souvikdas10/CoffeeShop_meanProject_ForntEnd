@@ -67,7 +67,7 @@ export class DetailsComponent implements OnInit {
         }
         this.UserSer.AddToCart(cart_product).subscribe((res) => {
           this.allCart = res
-          console.log("add to post:", this.allCart);
+          // console.log("add to post:", this.allCart);
           alert("Item Cart Successfully")
           this.router.navigate(['/Cart'])
         })

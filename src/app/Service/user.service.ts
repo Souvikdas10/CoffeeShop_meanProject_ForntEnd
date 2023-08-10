@@ -26,7 +26,7 @@ export class UserService {
   Cart_api: string = "http://localhost:3000/cart";
 
   // add_api: string = "http://localhost:2100/addcart";
-  items!: any[];
+  cartItems: any[] = [];
 
 
   constructor(private http: HttpClient, private auth: StorageService) { }
@@ -71,7 +71,7 @@ cartSingleData(id:number):Observable<Cart[]>{
 }
 
 AddToCart(obj:any):Observable<Cart[]>{
-  console.log("cart:",obj);
+  // console.log("cart:",obj);
   
   return this.http.post<Cart[]>(this.Cart_api,obj)
 }
@@ -95,11 +95,15 @@ calculateDiscountedPrice(price: number) {
 }
 
 
-// getSubtotal(item: any): any{
-  
-//   return item.quantity * item.price;
+// removeFromCart(index: number) {
+//   if (index >= 0 && index < this.cartItems.length) {
+//     this.cartItems.splice(index, 1);
+//   }
 // }
 
+// clearCart() {
+//   this.cartItems = [];
+// }
 
 
 
