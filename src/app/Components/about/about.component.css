@@ -1,0 +1,13 @@
+.card-img-top{
+    height: 150px;
+    object-fit: cover;
+    width: auto;
+    /* margin-bottom:.7rem!important; */
+    
+}
+/* .bb{
+    color: white;
+} */
+.team{
+    margin-left: 280px;
+}

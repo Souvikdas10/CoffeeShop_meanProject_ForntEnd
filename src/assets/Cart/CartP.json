@@ -116,9 +116,24 @@
       "updatedAt": "2023-07-29T08:34:39.137Z",
       "__v": 0,
       "email": "nabag123@gmail.com",
-      "quantity": 1,
-      "sub_total": 167,
+      "quantity": 5,
+      "sub_total": 835,
       "id": 8
+    },
+    {
+      "_id": "64afdccdb070f2ccd6a9b1b4",
+      "itemName": "COLD BREW COFFEE",
+      "itemDetails": "Cold Brew Coffee is a smooth, cold beverage prepared by brewing freshly ground coffee in cold water. In the Cold Brew process, time makes up for heat.",
+      "price": "150",
+      "image": "cold.jpg",
+      "status": true,
+      "createdAt": "2023-07-13T11:15:25.471Z",
+      "updatedAt": "2023-07-13T11:15:25.471Z",
+      "__v": 0,
+      "email": "nabag123@gmail.com",
+      "quantity": 1,
+      "sub_total": 150,
+      "id": 9
     }
   ]
 }

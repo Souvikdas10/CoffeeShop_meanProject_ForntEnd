@@ -79,9 +79,9 @@
   <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"></span></h4>
-      <ng-container *ngFor="let cartpric of allcart">
+      <ng-container *ngFor="let cartpric of allcart let i =index">
 
-      <p><a href="#">Product </a> <span class="price">₹ {{cartpric.price}}</span></p>
+      <p><b>Product {{i+1}} Qty: {{cartpric.quantity}}</b> <span class="price">₹ {{cartpric.price}}</span></p>
       
     </ng-container>
       <hr>
