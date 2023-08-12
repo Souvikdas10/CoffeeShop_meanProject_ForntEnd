@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/Service/user.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class BuyNowComponent implements OnInit {
   grandTotal:number=0;
   CodArr: string[] = ['Cash On Delivery', 'UPI']
   registaionInputValue!: FormGroup
-  constructor(private buyser: UserService, private route: Router) { }
+  constructor(private buyser: UserService,
+     private route: Router,
+     private toster:ToastrService
+    ) { }
   ngOnInit(): void {
     this.registaionInputValue = new FormGroup({
       name: new FormControl(''),
@@ -46,12 +50,20 @@ export class BuyNowComponent implements OnInit {
     this.buyser.BuyNow(this.registaionInputValue.value).subscribe((res: any) => {
       console.log("submited data:", res);
       if (res.status == 200) {
-        alert(res.msg);
+        // console.log(res.msg);
+        this.toster.success("Your Order is confirm ")
+
         this.route.navigate(['/menu'])
       } else {
-        alert(res.msg)
+        this.toster.success("Your Order is not confirm ")
+        
       }
 
     })
   }
+
+// orderSuccess(){
+//   this.toster.success("Your Order is confirm ")
+// }
+
 }

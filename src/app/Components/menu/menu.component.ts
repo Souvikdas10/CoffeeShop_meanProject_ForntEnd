@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit {
   folderPath: string = "upload/"
   discountedPrice!: number;
   originalPrice!:any;
+  searchedCoffee : any = [];
 
   constructor(private httpSer: UserService, private Activate: ActivatedRoute) {
     // this.httpSer.item_Menu().subscribe((res: any) => {
@@ -42,8 +43,18 @@ export class MenuComponent implements OnInit {
       // console.log("all image:", this.baseUrl,this.folderPath,this.allItem.image);
 
     })
-
-
-
   }
+
+  onSearch(search:any){
+    console.log(search.value);
+    let value = search.value;
+    if(value.length >= 2){
+     this.searchedCoffee = this.allItem.filter((data:any)=>{
+       return data.itemName.toLowerCase().includes(value.toLowerCase())
+     });
+     console.log(this.searchedCoffee);
+     
+    }
+ }
+
 }

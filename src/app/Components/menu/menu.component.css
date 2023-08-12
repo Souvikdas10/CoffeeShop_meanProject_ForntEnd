@@ -10,6 +10,12 @@
     height: 150px;
     object-fit: cover;
     width: auto;
-    /* margin-bottom:.7rem!important; */
-    
+    /* margin-bottom:.7rem!important; */   
+}
+.fa-search{
+    /* margin-right: 50px; */
+    /* position: absolute; */
+    top: 1500px;
+    /* text-align: left; */
+    /* bottom: 17px; */
 }

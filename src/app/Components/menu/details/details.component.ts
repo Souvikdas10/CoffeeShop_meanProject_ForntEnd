@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 
@@ -22,7 +23,8 @@ export class DetailsComponent implements OnInit {
   constructor(private UserSer: UserService,
     private Storage: StorageService,
     private Activate: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toster:ToastrService
   ) { }
 
 
@@ -68,7 +70,7 @@ export class DetailsComponent implements OnInit {
         this.UserSer.AddToCart(cart_product).subscribe((res) => {
           this.allCart = res
           // console.log("add to post:", this.allCart);
-          alert("Item Cart Successfully")
+          this.toster.success("Item Cart Successfully")
           this.router.navigate(['/Cart'])
         })
 
@@ -84,7 +86,7 @@ export class DetailsComponent implements OnInit {
         this.UserSer.editQuant(this.existing.id,new_data).subscribe((res) => {
           this.allCart = res
           console.log("add to post:", this.allCart);
-          alert("Item Cart Successfully")
+          this.toster.success("Item Cart Successfully")
           this.router.navigate(['/Cart'])
         })     
       }

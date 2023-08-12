@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 @Component({
@@ -13,8 +14,11 @@ export class LoginComponent implements OnInit {
   errorMsg!: string;
   changetype: boolean = true;
   visible: boolean = true;
-  constructor(private UserSer: UserService, private storage: StorageService,
-    private route: Router
+  constructor(private UserSer: UserService, 
+    private storage: StorageService,
+    private route: Router,
+    private toster:ToastrService
+
   ) { }
   ngOnInit(): void {
     this.loginInputValue = new FormGroup({
@@ -39,11 +43,13 @@ export class LoginComponent implements OnInit {
           res.user.email,
           res.user._id,
           res.token)
-        alert(res.msg)
+        // alert(res.msg)
+        this.toster.success("Loggin Successfully")
         this.route.navigate(['/menu'])
       } else {
         // alert("Login Error");
-        alert(res.message);
+        // alert(res.message);
+        this.toster.show("Login Error")
       }
     }, (err) => {
       console.log("http error :", err.error.message);

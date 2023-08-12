@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/Service/user.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class RegistationComponent implements OnInit {
   changeType: boolean = true;
   visiable: boolean = true;
   constructor(private UserSer: UserService,
-    private route: Router
+    private route: Router,
+    private toster:ToastrService
   ) { }
   ngOnInit(): void {
     this.registaionInputValue = new FormGroup({
@@ -53,10 +55,11 @@ export class RegistationComponent implements OnInit {
     this.UserSer.register(formData).subscribe((res: any) => {
       console.log("Responce after post:", res);
       if (res.status == 200) {
-        alert("Registration Successfully");
+        // alert("Registration Successfully");
+        this.toster.success("Registration Successfully")
         this.route.navigate(['/login'])
       } else {
-        alert("Something went wrong")
+        this.toster.success("Something went wrong, Try again")
       }
     })
   }

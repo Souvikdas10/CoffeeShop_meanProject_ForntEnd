@@ -12,6 +12,7 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { authGuardGuard } from './Authentication/auth-guard.guard';
 import { BuyNowComponent } from './Components/buy-now/buy-now.component';
+import { ErrorPageComponent } from './Components/error-page/error-page.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -30,7 +31,10 @@ const routes: Routes = [
   {path:"profile",component:ProfileComponent, canActivate:[authGuardGuard]},
   {path:"Cart",component:CartComponent, canActivate:[authGuardGuard] },
   {path:"buynow",component:BuyNowComponent},
-  { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
+  { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+
+  { path: 'error-page', component: ErrorPageComponent },
+  { path: '**', redirectTo: '/error-page', pathMatch: 'full' },
 ];
 
 @NgModule({

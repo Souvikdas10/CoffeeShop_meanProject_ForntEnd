@@ -20,8 +20,8 @@ export class AppComponent {
   baseUrl: string = "http://localhost:2100/"
   folderPath: string = "upload/"
   img_path: any = "";
-  item:any;
   totalItem=0;
+ 
 
   constructor(private router: Router,
     private userser:UserService,
@@ -59,6 +59,7 @@ export class AppComponent {
       this.totalItem=res.length;
       console.log("cart length:",res.length);
     })
+   
 
   }
 

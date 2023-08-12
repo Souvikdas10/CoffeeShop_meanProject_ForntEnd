@@ -17,6 +17,9 @@ import { ProfileComponent } from './Components/profile/profile.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { BuyNowComponent } from './Components/buy-now/buy-now.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { ErrorPageComponent } from './Components/error-page/error-page.component';
+import { SearchPipe } from './Pipe/search.pipe';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -32,13 +35,16 @@ import { FooterComponent } from './Components/footer/footer.component';
     ProfileComponent,
     CartComponent,
     BuyNowComponent,
-    FooterComponent
+    FooterComponent,
+    ErrorPageComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

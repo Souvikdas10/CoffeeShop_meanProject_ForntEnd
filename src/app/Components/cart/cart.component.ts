@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { StorageService } from 'src/app/Service/storage.service';
 import { UserService } from 'src/app/Service/user.service';
 
@@ -21,9 +22,12 @@ export class CartComponent implements OnInit {
   cartlength: number = 0;
   // subTotal: number = 0;
   grandTotal: number = 0;
+  
 
   constructor(private userSer: UserService,
-    private stored: StorageService) { }
+    private stored: StorageService,
+    private toster:ToastrService
+    ) { }
   ngOnInit(): void {
     this.userSer.Cart_data().subscribe((res) => {
       this.cart_items = res
@@ -43,16 +47,20 @@ export class CartComponent implements OnInit {
 
   del(id: number) {
     this.userSer.CartItemDelete(id).subscribe((res) => {
-      console.log("Cart Item Delete:", res);
+      // console.log("Cart Item Delete:", res);
       this.userSer.Cart_data().subscribe((res) => {
         this.cart_items = res
         this.item = this.cart_items.filter((data:any)=>data.email == window.localStorage.getItem('email'));
         this.grandTotal = 0;
         for(let i = 0; i < this.item.length; i++){
           this.grandTotal += this.item[i].sub_total;
-         }
+        }
       })
     })
+  }
+
+  delNoti(){
+    this.toster.success("Item Remove Form Cart")
   }
 
 

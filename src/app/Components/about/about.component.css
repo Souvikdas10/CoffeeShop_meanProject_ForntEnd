@@ -1,13 +1,5 @@
 .card-img-top{
-    height: 150px;
+    height: 200px;
     object-fit: cover;
     width: auto;
-    /* margin-bottom:.7rem!important; */
-    
-}
-/* .bb{
-    color: white;
-} */
-.team{
-    margin-left: 280px;
 }
