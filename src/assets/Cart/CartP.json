@@ -1,18 +1,18 @@
 {
   "cart": [
     {
-      "_id": "64afd8ecb070f2ccd6a9b193",
-      "itemName": "Cappuccino ",
-      "itemDetails": "Variations of the drink involve the use of cream instead of milk, using non-dairy milk substitutes and flavoring with cinnamon (in the United States) or chocolate powder (in Europe). It is typically smaller in volume than a caffè latte, with a thicker layer of microfoam.",
-      "price": "167",
-      "image": "Cappuccino.jpg",
+      "_id": "64d4925bb0bc54d8ec22c7e5",
+      "itemName": "Red Eye",
+      "itemDetails": "The Red-eye is considered a coffee and hot chocolate hybrid. The chocolate powder or syrup gives it a rich and creamy flavor and cuts the acidity of the espresso.",
+      "price": "450",
+      "image": "Red-Eye.jpg",
       "status": true,
-      "createdAt": "2023-07-13T10:58:52.473Z",
-      "updatedAt": "2023-07-29T08:34:39.137Z",
+      "createdAt": "2023-08-10T07:31:40.074Z",
+      "updatedAt": "2023-08-10T07:31:40.074Z",
       "__v": 0,
       "email": "nabendu8942@gmail.com",
       "quantity": 1,
-      "sub_total": 167,
+      "sub_total": 450,
       "id": 1
     }
   ]
