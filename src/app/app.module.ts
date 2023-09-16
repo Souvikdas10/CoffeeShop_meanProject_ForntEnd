@@ -20,6 +20,7 @@ import { FooterComponent } from './Components/footer/footer.component';
 import { ErrorPageComponent } from './Components/error-page/error-page.component';
 import { SearchPipe } from './Pipe/search.pipe';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     ToastrModule.forRoot()
   ],
   providers: [],

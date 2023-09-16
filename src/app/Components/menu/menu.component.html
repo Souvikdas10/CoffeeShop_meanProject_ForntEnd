@@ -49,7 +49,12 @@
             </ng-container>
         </ng-template>
         <ng-template #elseBlock>
-            <ng-container *ngFor="let prod of allItem">
+
+            <ng-container *ngFor="let prod of allItem | paginate:{
+                itemsPerPage: 8,
+                currentPage:page, 
+                totalItems:totalRows,
+              };">
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-4">
                     <div class="card p-3">
                         <img src={{img_path}}{{prod?.image}} class="card-img-top" alt="product">
@@ -84,5 +89,14 @@
                 </div>
             </ng-container>
         </ng-template>
+        <div class="col-md-12" style="margin-bottom: 25px">
+            <section align="center">
+                <pagination-controls *ngIf="searchedCoffee.length==0" (pageChange)="page = $event">
+
+                </pagination-controls>
+                
+
+            </section>
+        </div>
     </div>
 </div>

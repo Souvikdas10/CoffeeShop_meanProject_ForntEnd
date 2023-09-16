@@ -1,18 +1,18 @@
 {
   "cart": [
     {
-      "_id": "64d4925bb0bc54d8ec22c7e5",
-      "itemName": "Red Eye",
-      "itemDetails": "The Red-eye is considered a coffee and hot chocolate hybrid. The chocolate powder or syrup gives it a rich and creamy flavor and cuts the acidity of the espresso.",
-      "price": "450",
-      "image": "Red-Eye.jpg",
+      "_id": "64b676cb9d9e6ea1b0c8b7d0",
+      "itemName": "Mocha Coffee",
+      "itemDetails": "The mocha is considered a coffee and hot chocolate hybrid. The chocolate powder or syrup gives it a rich and creamy flavor and cuts the acidity of the espresso.",
+      "price": "250",
+      "image": "Mocha-coffee.webp",
       "status": true,
-      "createdAt": "2023-08-10T07:31:40.074Z",
-      "updatedAt": "2023-08-10T07:31:40.074Z",
+      "createdAt": "2023-07-18T11:26:03.257Z",
+      "updatedAt": "2023-07-18T11:26:03.257Z",
       "__v": 0,
       "email": "nabendu8942@gmail.com",
       "quantity": 1,
-      "sub_total": 450,
+      "sub_total": 250,
       "id": 1
     }
   ]

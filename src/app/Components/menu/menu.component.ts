@@ -16,7 +16,10 @@ export class MenuComponent implements OnInit {
   discountedPrice!: number;
   originalPrice!:any;
   searchedCoffee : any = [];
-
+  itemDetails:any=[];
+  totalRows : number = 0;
+  page : number = 1;
+  
   constructor(private httpSer: UserService, private Activate: ActivatedRoute) {
     // this.httpSer.item_Menu().subscribe((res: any) => {
     //   // this.allItem =res.data.price;
@@ -34,7 +37,10 @@ export class MenuComponent implements OnInit {
   }
   ngOnInit(): void {
     this.httpSer.item_Menu().subscribe((res: any) => {
-      this.allItem = res.data;
+      // this.itemDetails = res.data;
+      this.itemDetails = res.data;
+      this.allItem = this.itemDetails.filter((data:any)=>data.status==true);
+
       // console.log("All item:", this.allItem);
 
       this.img_path = this.baseUrl + this.folderPath
